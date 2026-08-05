@@ -1,0 +1,48 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isHome = path === '/';
+const isPack = path === '/welcome-pack';
+---
+
+<nav
+  class="navbar navbar-expand-lg fixed-top stonechats-navbar"
+  data-bs-theme="dark"
+  aria-label="Main navigation"
+>
+  <div class="container">
+    <a class="navbar-brand" href="/">Stonechats</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavCollapse"
+      aria-controls="mainNavCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavCollapse">
+      <ul class="navbar-nav gap-lg-2">
+        <li class="nav-item">
+          <a
+            class={`nav-link ${isHome ? 'active' : ''}`}
+            href="/"
+            aria-current={isHome ? 'page' : undefined}
+          >
+            Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class={`nav-link ${isPack ? 'active' : ''}`}
+            href="/welcome-pack"
+            aria-current={isPack ? 'page' : undefined}
+          >
+            Welcome Pack
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

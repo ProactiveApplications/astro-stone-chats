@@ -1,0 +1,454 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const placesToVisit = [
+  { name: 'Mawgan Porth', time: '15 min' },
+  { name: 'Eden Project', time: '20 min' },
+  { name: 'Watergate Bay', time: '15 min' },
+  { name: 'Heligan', time: '30 min' },
+];
+
+const whereToEat = [
+  {
+    name: 'The Beach Hut, Watergate Bay',
+    desc: 'Perfect local beachfront location, all day long',
+    time: '15 min',
+  },
+  {
+    name: 'M&S Café, Fraddon',
+    desc: 'Not joking — perfect for a moment or three while you charge your car',
+    time: '10 min',
+  },
+  {
+    name: 'Farmers Arms, St Columb Minor',
+    desc: 'Family friendly, reasonable',
+    time: '30 min',
+  },
+  {
+    name: 'The Fish House, Fistral',
+    desc: 'Really nice local catch',
+    time: '15 min',
+  },
+];
+
+const whereToBuy = [
+  {
+    name: 'Morrisons',
+    desc: 'The closest large supermarket — you can click and collect AND they deliver!',
+    time: '12 min',
+  },
+  {
+    name: 'Sainsburys',
+    desc: "In Newquay, if that's your preference",
+    time: '15 min',
+  },
+  {
+    name: 'Da Dara Bakery',
+    desc: 'Fantastic on-site baker in Indian Queens',
+    time: '10 min',
+  },
+  {
+    name: 'Co-op, St Columb Road',
+    desc: 'For a quick smaller shop',
+    time: '5 min',
+  },
+];
+
+const houseRules = [
+  {
+    title: 'No Smoking',
+    body: 'We kindly ask all guests to refrain from smoking to maintain a clean environment for everyone.',
+  },
+  {
+    title: 'Dogs Welcome',
+    body: 'We love our pets, and they are welcome in the living area — not on the sofas please. There is a stairgate. Help yourself to treats and essentials in the dog welcome basket.',
+  },
+  {
+    title: 'Parties',
+    body: 'To ensure a peaceful stay for all guests, parties and events are not permitted on the premises. We appreciate your respect for our neighbours and fellow guests.',
+  },
+  {
+    title: 'Lights',
+    body: "Let's work together to reduce our environmental impact and keep our planet green — turn off unwanted lights.",
+  },
+  {
+    title: 'Recycling',
+    body: 'There is probably less recycling here than you are used to, but please use the glass and paper/cardboard bins on the site. Nearest are in the bottom car park.',
+  },
+  {
+    title: 'Heating',
+    body: 'The boiler and central heating works automatically according to the temperature. Instructions for boosting if required are inside the cupboard at the top of the stairs.',
+  },
+];
+---
+
+<MainLayout title="Welcome Pack — Stonechats">
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <h1>Welcome Pack</h1>
+        <p class="lead">Your guide</p>
+
+        <address class="address-block" style="margin-block: 1.5rem;">
+          <span class="a-title">Stonechats, Cornwall</span><br />
+          17 Golf Lodges<br />
+          Atlantic Reach TR8 4LX
+        </address>
+
+        <p>
+          Welcome to our Cornish getaway. We hope you are comfortable in the house and get to
+          really enjoy the facilities on site and use all this as the perfect base for exploring
+          beautiful Cornwall.
+        </p>
+        <p>
+          Whatever the weather, the coastline is unbeatable — we give you some pointers here to
+          help you choose. We also have tips for inland treasures.
+        </p>
+        <p>This guide also explains some important need-to-knows for inside the house.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-signpost-2" aria-hidden="true"></i></span>
+          <h2>Directions</h2>
+          <p><strong>17 Golf Lodges, Atlantic Reach, TR8 4LX</strong></p>
+          <p>
+            For your Satnav, use post code TR8 4LX. Leave the A30 at the Highgate Hill junction,
+            towards Newquay. Travel 1 mile down A39 to Halloon Roundabout. Take second exit to
+            Newquay. After 0.7 miles Atlantic Reach is on the right.
+          </p>
+          <p>
+            There is a train station at St Columb Road, or Newquay where getting a taxi is easier.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-key" aria-hidden="true"></i></span>
+          <h2>Checking In and Out</h2>
+
+          <h3>Arrive from 3 PM</h3>
+          <p>
+            After entering the Atlantic Reach entrance, follow round 3 bends, then pass the leisure
+            centre car park on your right. This is where you pick up your leisure passes, now or
+            later.
+          </p>
+          <p>
+            Go straight on, to the end, where you have to turn right. Then take first left and
+            follow down, near to bottom. Stonechats, number 17, is on your left.
+          </p>
+          <p>
+            The best car parking is a little behind you, on both sides of the road, or down and to
+            the right, but it's ok to stop outside the house to unload. The key safe is round the
+            back, by kitchen door. We will provide the code to you.
+          </p>
+
+          <h3>Check out by 11 AM</h3>
+          <p>
+            Please make sure you have everything (chargers?) and pop the keys back in the keysafe
+            as you go.
+          </p>
+          <p>Please put your rubbish in the big bins in a car park.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-wifi" aria-hidden="true"></i></span>
+          <h2>Wi-Fi</h2>
+          <p>Tap and hold to copy on your phone.</p>
+          <div class="credentials" style="margin-top: 1rem;">
+            <span class="cred-label">Network</span>
+            <span class="cred-value">xxxxxxx</span>
+            <span class="cred-label">Password</span>
+            <span class="cred-value">xxxxxxx</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-house-heart" aria-hidden="true"></i></span>
+          <h2>House Rules</h2>
+          <ol style="list-style: none; padding: 0; margin: 0; counter-reset: rule;">
+            {
+              houseRules.map((rule) => (
+                <li class="rule-item">
+                  <h3>{rule.title}</h3>
+                  <p>{rule.body}</p>
+                </li>
+              ))
+            }
+          </ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-envelope" aria-hidden="true"></i></span>
+          <h2>Contact</h2>
+          <p>
+            If anything comes up that you need help with, do please contact your holiday booking
+            company or email <a href="mailto:linda@prosserfamily.net">linda@prosserfamily.net</a>.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-question-circle" aria-hidden="true"></i></span>
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-topic">
+            <h3>Local Taxi</h3>
+            <ul>
+              <li>Taxicode: 0333 772 9737</li>
+              <li>
+                Newquay Cab: 01637 226 224 or
+                <a
+                  href="https://newquaycab.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="external-link">newquaycab.com</a
+                >
+              </li>
+              <li>…and of course Uber</li>
+            </ul>
+          </div>
+
+          <div class="faq-topic">
+            <h3>In the Kitchen</h3>
+            <p>
+              <em>Oven</em> — if the oven is off at the wall, turn it on and push the middle button
+              to start the clock. It will then be intuitive.
+            </p>
+            <p>
+              <em>The Blue Cafetière</em> — is a hoot — don't push the filter down! If you do, the
+              French get their revenge. Just wait a bit and give it a wiggle.
+            </p>
+          </div>
+
+          <div class="faq-topic">
+            <h3>Babies and Children</h3>
+            <ul>
+              <li>
+                The Baby Björn highchair is a great design — please check that you know where the
+                knob is (under the tray) to release it quickly if needed.
+              </li>
+              <li>
+                The stairgates lock by pressing and turning the knob to the right, and release with
+                a left turn — always lock them when in use.
+              </li>
+            </ul>
+          </div>
+
+          <div class="faq-topic">
+            <h3>Handy Items</h3>
+            <ul>
+              <li>Hairdryer — top drawer on the landing</li>
+              <li>Speaker — pair it using button on the bottom</li>
+              <li>Fan — remote controller on the coffee table</li>
+              <li>There is a (fake) candle lantern in the alcove — you can use this outside</li>
+              <li>Look under the utensils tray for spare batteries</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-info-circle" aria-hidden="true"></i></span>
+          <h2>By the Way</h2>
+
+          <div class="faq-topic">
+            <h3>On-site Activities</h3>
+            <p>
+              Swimming, classes, tennis. Don't forget to book your leisure pass activities in
+              advance at
+              <a
+                href="https://atlanticreach.co.uk"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="external-link">atlanticreach.co.uk</a
+              >.
+            </p>
+          </div>
+
+          <div class="faq-topic">
+            <h3>What to Bring</h3>
+            <p>
+              We have provided towels for in the house. Please bring your own for swimming and the
+              beach. You may want to bring gear for tennis, walking, surfing, bird watching. There
+              are some beach chairs and children's body boards under the stairs.
+            </p>
+          </div>
+
+          <div class="faq-topic">
+            <h3>Health</h3>
+            <ul>
+              <li>Call 999 in an emergency or 111 for less urgent care advice.</li>
+              <li>Minor Injuries Unit in Newquay TR7 1RQ — open Thursday to Tuesday 8am–6pm.</li>
+              <li>A&amp;E 24/7 in Truro.</li>
+              <li>Boots Pharmacy at Fraddon.</li>
+            </ul>
+          </div>
+
+          <div class="faq-topic">
+            <h3>Noises</h3>
+            <p>
+              Sometimes the crows enjoy a tap dance on the roof. It sounds like a battalion of
+              squirrels in the attic, but really you don't have to worry.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-compass" aria-hidden="true"></i></span>
+          <h2>Things to Do</h2>
+          <p>
+            There is so much to do that we have left a sheet in the coffee table drawer with lots
+            of ideas. Please feel free to scribble on it and we will update it. But here are some
+            of our favourites.
+          </p>
+
+          <h3 style="margin-top: 2rem;">Places to Visit</h3>
+          <p>
+            From iconic landmarks and historic sites to scenic parks and cultural hotspots, there's
+            something for every traveller to explore and enjoy.
+          </p>
+          <ul class="info-list">
+            {
+              placesToVisit.map((place) => (
+                <li>
+                  <div class="info-main">
+                    <span class="info-name">{place.name}</span>
+                  </div>
+                  <span class="info-time">{place.time}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <h3 style="margin-top: 2rem;">Going Out</h3>
+          <div class="faq-topic" style="margin-top: 1rem;">
+            <h3>Tides</h3>
+            <p>
+              Wherever you are going, it's worth knowing where the water will be.
+              <a
+                href="https://www.tidetimes.org.uk/newquay-tide-times"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="external-link">Check the tides</a
+              >.
+            </p>
+          </div>
+          <div class="faq-topic">
+            <h3>Fistral Boardmasters</h3>
+            <p>For the view over the iconic beach. <em>15 min by car.</em></p>
+          </div>
+          <div class="faq-topic">
+            <h3>Lusty Glaze Beach Bar</h3>
+            <p>
+              Just the best spot for an evening swim, drink and maybe live music. Be prepared for
+              the steps back up! <em>15 min by car.</em>
+            </p>
+          </div>
+          <div class="faq-topic">
+            <h3>The Harlyn</h3>
+            <p>
+              Worth a drive north to Harlyn Bay for the Trevose headland and beaches, a walk and a
+              pit stop. <em>35 min by car.</em>
+            </p>
+          </div>
+
+          <h3 style="margin-top: 2rem;">Where to Eat</h3>
+          <ul class="info-list">
+            {
+              whereToEat.map((item) => (
+                <li>
+                  <div class="info-main">
+                    <span class="info-name">{item.name}</span>
+                    <span class="info-desc">{item.desc}</span>
+                  </div>
+                  <span class="info-time">{item.time}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <h3 style="margin-top: 2rem;">Where to Buy</h3>
+          <ul class="info-list">
+            {
+              whereToBuy.map((item) => (
+                <li>
+                  <div class="info-main">
+                    <span class="info-name">{item.name}</span>
+                    <span class="info-desc">{item.desc}</span>
+                  </div>
+                  <span class="info-time">{item.time}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow reveal">
+        <article class="stonechats-card lift">
+          <span class="card-icon"><i class="bi bi-heart" aria-hidden="true"></i></span>
+          <h2>Farewell</h2>
+          <p>
+            Please leave any thoughts, ideas and recommendations on our
+            <a href="#" target="_blank" rel="noopener noreferrer" class="external-link"
+              >Instagram page</a
+            >
+            or via your booking agent.
+          </p>
+          <p>
+            Thank you for choosing Stonechats — we hope you will return and recommend us to your
+            friends and family.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</MainLayout>

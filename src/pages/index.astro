@@ -1,18 +1,94 @@
 ---
-
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Stonechats</h1>
-		<h2>Coming soon...</h2>
-	</body>
-</html>
+<MainLayout title="Stonechats — A Cornish getaway">
+  <section class="hero-carousel-section">
+    <div
+      id="stonechatsHero"
+      class="carousel slide hero-carousel"
+      data-bs-ride="carousel"
+      data-bs-interval="6000"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active hero-slide-1">
+          <div class="hero-caption">
+            <p class="hero-line">Stylish and comfortable holiday home</p>
+            <p class="hero-line">Ideal for families</p>
+            <p class="hero-line">Close to beautiful beaches</p>
+          </div>
+        </div>
+        <div class="carousel-item hero-slide-2">
+          <div class="hero-caption">
+            <p class="hero-line">Stylish and comfortable holiday home</p>
+            <p class="hero-line">Ideal for families</p>
+            <p class="hero-line">Close to beautiful beaches</p>
+          </div>
+        </div>
+        <div class="carousel-item hero-slide-3">
+          <div class="hero-caption">
+            <p class="hero-line">Stylish and comfortable holiday home</p>
+            <p class="hero-line">Ideal for families</p>
+            <p class="hero-line">Close to beautiful beaches</p>
+          </div>
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#stonechatsHero"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#stonechatsHero"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow text-center reveal">
+        <h1>Welcome to our Cornish getaway</h1>
+        <p style="margin-top: 1.25rem;">
+          Stonechats is a beautifully styled holiday home, just minutes from Cornwall's finest
+          beaches. Whether you're here for adventure or rest, you'll find everything you need.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="container">
+      <div class="content-narrow text-center reveal">
+        <p style="font-size: 1.15rem; margin-bottom: 2rem;">
+          Everything you need to know about your stay.
+        </p>
+        <a class="btn-stonechats" href="/welcome-pack">View the Welcome Pack</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alice">
+    <div class="container">
+      <div class="content-narrow text-center reveal">
+        <h2>Get in Touch</h2>
+        <p style="margin-top: 1.25rem; font-size: 1.15rem;">
+          <i
+            class="bi bi-envelope"
+            aria-hidden="true"
+            style="margin-right: 0.5rem; color: var(--color-night-bordeaux);"></i>
+          <a href="mailto:linda@prosserfamily.net">linda@prosserfamily.net</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</MainLayout>
