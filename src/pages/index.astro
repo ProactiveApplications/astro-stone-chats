@@ -20,7 +20,7 @@ const heroWidths = [600, 900, 1200, 1800, 2400];
       id="stonechatsHero"
       class="carousel slide hero-carousel"
       data-bs-ride="carousel"
-      data-bs-interval="6000"
+      data-bs-interval="3500"
     >
       <div class="carousel-inner">
         {
@@ -33,7 +33,7 @@ const heroWidths = [600, 900, 1200, 1800, 2400];
                 formats={['avif', 'webp']}
                 alt={slide.alt}
                 class="hero-image"
-                loading={i === 0 ? 'eager' : 'lazy'}
+                loading="eager"
               />
             </div>
           ))
@@ -97,7 +97,7 @@ const heroWidths = [600, 900, 1200, 1800, 2400];
             class="bi bi-envelope"
             aria-hidden="true"
             style="margin-right: 0.5rem; color: var(--color-tiger-flame);"></i>
-          <a href="mailto:linda@prosserfamily.net">linda@prosserfamily.net</a>
+          <a href="mailto:info@stonechats.com">info@stonechats.com</a>
         </p>
       </div>
     </div>
