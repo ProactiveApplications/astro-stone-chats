@@ -21,7 +21,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Work+Sans:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
     />
 
     <link
@@ -36,19 +36,19 @@ const { title } = Astro.props;
     <style is:global>
       :root {
         --color-alice-blue: #ebf2f4;
-        --color-yale-blue: #1b4965;
+        --color-smoky-rose: #7f636e;
         --color-cool-steel: #a6b9bf;
         --color-white: #ffffff;
-        --color-night-bordeaux: #561d25;
-        --font-display: 'Cormorant Garamond', Georgia, serif;
-        --font-body: 'Work Sans', system-ui, -apple-system, sans-serif;
+        --color-tiger-flame: #f05d23;
+        --font-display: 'Raleway', system-ui, -apple-system, sans-serif;
+        --font-body: 'Lato', system-ui, -apple-system, sans-serif;
       }
 
       html { scroll-behavior: smooth; }
 
       body {
         font-family: var(--font-body);
-        color: var(--color-yale-blue);
+        color: var(--color-smoky-rose);
         background: var(--color-white);
         font-size: 1.0625rem;
         line-height: 1.7;
@@ -58,7 +58,7 @@ const { title } = Astro.props;
 
       h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-display);
-        color: var(--color-yale-blue);
+        color: var(--color-smoky-rose);
         font-weight: 600;
         line-height: 1.2;
         letter-spacing: -0.005em;
@@ -68,19 +68,19 @@ const { title } = Astro.props;
       h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
 
       p { margin-bottom: 1rem; }
-      .lead { font-size: 1.15rem; color: var(--color-yale-blue); opacity: 0.85; }
+      .lead { font-size: 1.15rem; color: var(--color-smoky-rose); opacity: 0.85; }
 
       a {
-        color: var(--color-yale-blue);
+        color: var(--color-smoky-rose);
         text-decoration: underline;
         text-underline-offset: 3px;
         text-decoration-thickness: 1px;
         transition: color 0.2s ease;
       }
-      a:hover, a:focus { color: var(--color-night-bordeaux); }
+      a:hover, a:focus { color: var(--color-tiger-flame); }
 
       .btn-stonechats {
-        background: var(--color-yale-blue);
+        background: var(--color-tiger-flame);
         color: var(--color-white);
         border: none;
         border-radius: 0.5rem;
@@ -92,13 +92,13 @@ const { title } = Astro.props;
         text-decoration: none;
         display: inline-block;
         transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-        box-shadow: 0 2px 6px rgba(27, 73, 101, 0.15);
+        box-shadow: 0 2px 6px rgba(240, 93, 35, 0.22);
       }
       .btn-stonechats:hover, .btn-stonechats:focus {
-        background: var(--color-night-bordeaux);
+        background: var(--color-smoky-rose);
         color: var(--color-white);
         transform: translateY(-2px);
-        box-shadow: 0 6px 14px rgba(86, 29, 37, 0.25);
+        box-shadow: 0 6px 14px rgba(127, 99, 110, 0.28);
       }
 
       .section { padding-block: clamp(3.5rem, 8vw, 6rem); }
@@ -115,7 +115,7 @@ const { title } = Astro.props;
       .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
       .lift { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-      .lift:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(27, 73, 101, 0.12); }
+      .lift:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(127, 99, 110, 0.15); }
 
       .stonechats-card {
         background: var(--color-white);
@@ -132,7 +132,7 @@ const { title } = Astro.props;
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-        background: var(--color-yale-blue);
+        background: var(--color-tiger-flame);
         color: var(--color-white);
         font-size: 1.4rem;
         margin-bottom: 1rem;
@@ -141,7 +141,7 @@ const { title } = Astro.props;
       .stonechats-card h3 { margin-top: 1.25rem; }
 
       .credentials {
-        background: var(--color-yale-blue);
+        background: var(--color-smoky-rose);
         color: var(--color-white);
         border-radius: 0.5rem;
         padding: 1rem 1.25rem;
@@ -168,15 +168,15 @@ const { title } = Astro.props;
         font-family: var(--font-body);
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--color-night-bordeaux);
+        color: var(--color-tiger-flame);
         margin: 0 0 0.35rem;
       }
       .rule-item p { margin: 0; }
 
       .address-block {
-        color: var(--color-yale-blue);
+        color: var(--color-smoky-rose);
         background: var(--color-alice-blue);
-        border-left: 3px solid var(--color-yale-blue);
+        border-left: 3px solid var(--color-smoky-rose);
         padding: 1rem 1.25rem;
         border-radius: 0 0.5rem 0.5rem 0;
         display: inline-block;
@@ -196,17 +196,17 @@ const { title } = Astro.props;
       }
       .info-list li:last-child { border-bottom: 0; }
       .info-list .info-main { flex: 1; }
-      .info-list .info-name { font-weight: 500; color: var(--color-yale-blue); }
+      .info-list .info-name { font-weight: 500; color: var(--color-smoky-rose); }
       .info-list .info-desc {
         display: block;
-        color: var(--color-yale-blue);
+        color: var(--color-smoky-rose);
         opacity: 0.8;
         font-size: 0.95rem;
         margin-top: 0.1rem;
       }
       .info-list .info-time {
         white-space: nowrap;
-        color: var(--color-night-bordeaux);
+        color: var(--color-tiger-flame);
         font-weight: 500;
         font-size: 0.95rem;
       }
@@ -214,20 +214,30 @@ const { title } = Astro.props;
       .hero-carousel-section { margin-top: -4.5rem; }
       .hero-carousel .carousel-item {
         min-height: 70vh;
-        background-size: cover;
-        background-position: center;
         position: relative;
+        overflow: hidden;
+        background: var(--color-smoky-rose);
+      }
+      .hero-carousel .carousel-item > picture {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .hero-carousel .carousel-item .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
       }
       .hero-carousel .carousel-item::before {
         content: '';
         position: absolute;
         inset: 0;
         background: rgba(0, 0, 0, 0.35);
-        z-index: 1;
+        z-index: 2;
       }
-      .hero-slide-1 { background-color: #1b4965; }
-      .hero-slide-2 { background-color: #2d5f7c; }
-      .hero-slide-3 { background-color: #17405a; }
 
       .hero-caption {
         position: absolute;
@@ -239,71 +249,85 @@ const { title } = Astro.props;
         text-align: center;
         color: var(--color-white);
         padding: 5rem 1.25rem 3rem;
-        z-index: 2;
+        z-index: 3;
+        pointer-events: none;
       }
       .hero-caption .hero-line {
         font-family: var(--font-display);
-        font-weight: 600;
+        font-weight: 500;
         color: var(--color-white);
-        font-size: clamp(1.6rem, 4vw, 2.75rem);
-        line-height: 1.15;
-        margin: 0.35rem 0;
+        font-size: clamp(1.7rem, 5vw, 3.8rem);
+        line-height: 1.1;
+        margin: 0.5rem 0;
         max-width: 22ch;
         opacity: 0;
-        transform: translateY(24px);
+        transform: translateX(-60px);
+        animation: heroSlideIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
       }
-      .hero-caption.is-active .hero-line { animation: heroFadeUp 1s ease forwards; }
-      .hero-caption.is-active .hero-line:nth-child(1) { animation-delay: 0.2s; }
-      .hero-caption.is-active .hero-line:nth-child(2) { animation-delay: 0.7s; }
-      .hero-caption.is-active .hero-line:nth-child(3) { animation-delay: 1.2s; }
-      @keyframes heroFadeUp {
-        to { opacity: 1; transform: translateY(0); }
+      .hero-caption .hero-line:not(:last-child)::after {
+        content: '';
+        display: block;
+        width: 3.5rem;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.65);
+        margin: 0.85rem auto 0;
+      }
+      .hero-caption .hero-line:nth-child(1) { animation-delay: 0.2s; }
+      .hero-caption .hero-line:nth-child(2) { animation-delay: 0.7s; }
+      .hero-caption .hero-line:nth-child(3) { animation-delay: 1.2s; }
+      @keyframes heroSlideIn {
+        to { opacity: 1; transform: translateX(0); }
       }
       .carousel-control-prev, .carousel-control-next { z-index: 3; opacity: 0.55; }
       .carousel-control-prev:hover, .carousel-control-next:hover { opacity: 0.9; }
 
-      .stonechats-navbar { background: var(--color-yale-blue) !important; }
+      .stonechats-navbar {
+        background: #eaf2f3 !important;
+        border-bottom: 1px solid rgba(127, 99, 110, 0.15);
+      }
       .stonechats-navbar .navbar-brand {
         font-family: var(--font-display);
         font-weight: 700;
         font-size: 1.65rem;
-        color: var(--color-white) !important;
+        color: var(--color-tiger-flame) !important;
         letter-spacing: 0.005em;
       }
       .stonechats-navbar .nav-link {
-        color: var(--color-white) !important;
+        color: var(--color-tiger-flame) !important;
         font-family: var(--font-body);
-        font-weight: 400;
+        font-weight: 500;
         padding: 0.5rem 1rem !important;
-        opacity: 0.85;
+        opacity: 0.9;
         transition: opacity 0.2s ease;
       }
       .stonechats-navbar .nav-link:hover { opacity: 1; }
       .stonechats-navbar .nav-link.active {
         opacity: 1;
         font-weight: 600;
-        border-bottom: 2px solid var(--color-cool-steel);
+        border-bottom: 2px solid var(--color-tiger-flame);
       }
       .stonechats-navbar .navbar-toggler {
-        border-color: rgba(255,255,255,0.3);
+        border-color: rgba(240, 93, 35, 0.35);
         padding: 0.35rem 0.6rem;
       }
       .stonechats-navbar .navbar-toggler:focus { box-shadow: none; }
       .stonechats-navbar .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f05d23' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
       .stonechats-footer {
-        background: var(--color-yale-blue);
-        color: var(--color-white);
+        background: #eaf2f3;
+        color: var(--color-smoky-rose);
         padding: 2.75rem 0;
         text-align: center;
+        border-top: 1px solid rgba(127, 99, 110, 0.15);
       }
       .stonechats-footer p { margin: 0; }
       .stonechats-footer .tagline {
         font-family: var(--font-display);
         font-style: italic;
-        color: var(--color-cool-steel);
+        color: var(--color-tiger-flame);
         margin-top: 0.35rem;
         font-size: 1.1rem;
       }
@@ -314,7 +338,7 @@ const { title } = Astro.props;
         font-family: var(--font-body);
         font-size: 1.1rem;
         font-weight: 600;
-        color: var(--color-night-bordeaux);
+        color: var(--color-tiger-flame);
         margin: 0 0 0.5rem;
       }
       .faq-topic ul { padding-left: 1.25rem; margin: 0; }
@@ -359,23 +383,6 @@ const { title } = Astro.props;
         els.forEach((el) => io.observe(el));
       })();
 
-      (function () {
-        const carousel = document.querySelector('.hero-carousel');
-        if (!carousel) return;
-        const setActive = () => {
-          carousel.querySelectorAll('.carousel-item').forEach((item) => {
-            const cap = item.querySelector('.hero-caption');
-            if (!cap) return;
-            if (item.classList.contains('active')) cap.classList.add('is-active');
-            else cap.classList.remove('is-active');
-          });
-        };
-        setActive();
-        carousel.addEventListener('slide.bs.carousel', () => {
-          carousel.querySelectorAll('.hero-caption').forEach((c) => c.classList.remove('is-active'));
-        });
-        carousel.addEventListener('slid.bs.carousel', setActive);
-      })();
     </script>
   </body>
 </html>

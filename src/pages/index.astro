@@ -1,5 +1,17 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import { Picture } from 'astro:assets';
+import img1 from '../assets/img/img1.webp';
+import img2 from '../assets/img/img2.webp';
+import img3 from '../assets/img/img3.webp';
+
+const slides = [
+  { src: img1, alt: 'Stonechats — a Cornish getaway' },
+  { src: img2, alt: 'Inside Stonechats' },
+  { src: img3, alt: 'The Cornish coastline near Stonechats' },
+];
+
+const heroWidths = [600, 900, 1200, 1800, 2400];
 ---
 
 <MainLayout title="Stonechats — A Cornish getaway">
@@ -11,27 +23,26 @@ import MainLayout from '../layouts/MainLayout.astro';
       data-bs-interval="6000"
     >
       <div class="carousel-inner">
-        <div class="carousel-item active hero-slide-1">
-          <div class="hero-caption">
-            <p class="hero-line">Stylish and comfortable holiday home</p>
-            <p class="hero-line">Ideal for families</p>
-            <p class="hero-line">Close to beautiful beaches</p>
-          </div>
-        </div>
-        <div class="carousel-item hero-slide-2">
-          <div class="hero-caption">
-            <p class="hero-line">Stylish and comfortable holiday home</p>
-            <p class="hero-line">Ideal for families</p>
-            <p class="hero-line">Close to beautiful beaches</p>
-          </div>
-        </div>
-        <div class="carousel-item hero-slide-3">
-          <div class="hero-caption">
-            <p class="hero-line">Stylish and comfortable holiday home</p>
-            <p class="hero-line">Ideal for families</p>
-            <p class="hero-line">Close to beautiful beaches</p>
-          </div>
-        </div>
+        {
+          slides.map((slide, i) => (
+            <div class={`carousel-item ${i === 0 ? 'active' : ''}`}>
+              <Picture
+                src={slide.src}
+                widths={heroWidths}
+                sizes="100vw"
+                formats={['avif', 'webp']}
+                alt={slide.alt}
+                class="hero-image"
+                loading={i === 0 ? 'eager' : 'lazy'}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <div class="hero-caption">
+        <p class="hero-line">Stylish and comfortable holiday home</p>
+        <p class="hero-line">Ideal for families</p>
+        <p class="hero-line">Close to beautiful beaches</p>
       </div>
       <button
         class="carousel-control-prev"
@@ -85,7 +96,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           <i
             class="bi bi-envelope"
             aria-hidden="true"
-            style="margin-right: 0.5rem; color: var(--color-night-bordeaux);"></i>
+            style="margin-right: 0.5rem; color: var(--color-tiger-flame);"></i>
           <a href="mailto:linda@prosserfamily.net">linda@prosserfamily.net</a>
         </p>
       </div>
