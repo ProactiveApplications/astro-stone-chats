@@ -418,6 +418,139 @@ const { title } = Astro.props;
         margin-left: 0.2em;
         font-size: 0.85em;
       }
+
+      .page-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .page-header h1 { margin: 0; }
+      .print-btn {
+        background: transparent;
+        color: var(--color-tiger-flame);
+        border: 1px solid var(--color-tiger-flame);
+        border-radius: 0.4rem;
+        padding: 0.45rem 0.9rem;
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        transition: background 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+      }
+      .print-btn:hover,
+      .print-btn:focus {
+        background: var(--color-tiger-flame);
+        color: var(--color-white);
+        outline: none;
+      }
+      .print-btn i { font-size: 1rem; }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 1.5cm 1.5cm 2cm;
+        }
+
+        html,
+        body {
+          background: #fff !important;
+          color: #000 !important;
+          font-size: 10.5pt;
+          line-height: 1.5;
+        }
+
+        .stonechats-navbar,
+        .stonechats-footer,
+        .hero-carousel-section,
+        .btn-stonechats,
+        .print-btn { display: none !important; }
+
+        main { padding-top: 0 !important; }
+
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+
+        .section {
+          padding-block: 0.5rem !important;
+          background: transparent !important;
+        }
+
+        .content-narrow { max-width: 100% !important; }
+
+        .stonechats-card {
+          border: none !important;
+          background: transparent !important;
+          padding: 0.25rem 0 !important;
+          box-shadow: none !important;
+          height: auto !important;
+          page-break-inside: auto;
+        }
+
+        .card-icon {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background: #c24418 !important;
+          color: #fff !important;
+          width: 2rem;
+          height: 2rem;
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .credentials {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background: #f4f4f4 !important;
+          color: #000 !important;
+          border: 1px solid #999;
+        }
+        .credentials .cred-label { color: #555 !important; }
+
+        h1, h2, h3, h4 {
+          color: #000 !important;
+          page-break-after: avoid;
+        }
+        .stonechats-card h3,
+        .rule-item h3,
+        .faq-topic h3 { color: #c24418 !important; }
+
+        p, li, td { color: #000 !important; }
+
+        a { color: #000 !important; text-decoration: none; }
+        a[href^="http"]::after {
+          content: " (" attr(href) ")";
+          font-size: 0.85em;
+          color: #555;
+          word-break: break-all;
+        }
+        a[href^="mailto:"]::after { content: none !important; }
+        .external-link::after { content: none !important; }
+
+        .rule-item,
+        .faq-topic,
+        .info-list li { page-break-inside: avoid; }
+
+        body::before {
+          content: "Stonechats — Welcome Pack";
+          display: block;
+          font-family: 'Raleway', system-ui, sans-serif;
+          font-size: 11pt;
+          font-weight: 600;
+          color: #c24418;
+          text-align: right;
+          padding-bottom: 0.4rem;
+          border-bottom: 0.5px solid #999;
+          margin-bottom: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
