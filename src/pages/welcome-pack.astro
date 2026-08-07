@@ -419,6 +419,143 @@ const houseRules = [
           </p>
         </article>
       </div>
+      <div class="content-narrow reveal" style="margin-top: 1.5rem;">
+        <article class="stonechats-card lift review-form-card">
+          <span class="card-icon"><i class="bi bi-pencil-heart" aria-hidden="true"></i></span>
+          <h2>Leave a review</h2>
+          <p>We'd love to hear what you thought of your stay.</p>
+
+          <form id="review-form" novalidate>
+            <input type="hidden" name="access_key" value={import.meta.env.PUBLIC_W3F_KEY} />
+            <input type="hidden" name="subject" value="New Stonechats Guest Review" />
+            <input type="checkbox" name="botcheck" class="review-botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="mb-3">
+              <label for="review-name" class="form-label">Name <span class="review-optional">(optional)</span></label>
+              <input type="text" class="form-control review-input" id="review-name" name="name" autocomplete="name" />
+            </div>
+
+            <div class="mb-4">
+              <label for="review-message" class="form-label">Your review</label>
+              <textarea class="form-control review-input" id="review-message" name="message" rows="5"></textarea>
+              <p class="review-field-error mt-1 mb-0" id="review-message-error" role="alert" aria-live="polite" style="display:none">
+                <i class="bi bi-exclamation-circle-fill" aria-hidden="true"></i> Please write your review before sending.
+              </p>
+            </div>
+
+            <button type="submit" class="btn-stonechats" id="review-submit">Send review</button>
+          </form>
+
+          <p class="review-success mb-0" id="review-success" role="status" style="display:none">
+            <i class="bi bi-check-circle-fill" aria-hidden="true"></i> Thank you — we really appreciate your kind words!
+          </p>
+          <p class="review-send-error mb-0" id="review-send-error" role="alert" style="display:none">
+            <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i> Something went wrong — please try again.
+          </p>
+        </article>
+      </div>
     </div>
   </section>
 </MainLayout>
+
+<style>
+  .review-optional {
+    font-size: 0.875rem;
+    color: var(--color-cool-steel);
+    font-weight: 400;
+  }
+
+  .review-botcheck {
+    display: none !important;
+  }
+
+  .review-field-error {
+    color: #b91c1c;
+    font-size: 0.9rem;
+  }
+
+  .review-success {
+    color: var(--color-tiger-flame);
+    font-weight: 500;
+    font-size: 1.05rem;
+  }
+
+  .review-send-error {
+    color: #b91c1c;
+    font-size: 0.9rem;
+  }
+
+  :global(.review-form-card .form-control) {
+    border-color: rgba(166, 185, 191, 0.6);
+    color: var(--color-smoky-rose);
+  }
+  :global(.review-form-card .form-control:focus) {
+    border-color: var(--color-tiger-flame);
+    box-shadow: 0 0 0 0.2rem rgba(194, 68, 24, 0.15);
+    color: var(--color-smoky-rose);
+  }
+  :global(.review-form-card .form-label) {
+    font-weight: 500;
+    color: var(--color-smoky-rose);
+  }
+
+  @media print {
+    .review-form-card {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const form = document.getElementById('review-form') as HTMLFormElement | null;
+    if (!form) return;
+
+    const messageEl = document.getElementById('review-message') as HTMLTextAreaElement;
+    const messageError = document.getElementById('review-message-error') as HTMLElement;
+    const submitBtn = document.getElementById('review-submit') as HTMLButtonElement;
+    const successEl = document.getElementById('review-success') as HTMLElement;
+    const sendErrorEl = document.getElementById('review-send-error') as HTMLElement;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      if (!messageEl.value.trim()) {
+        messageError.style.display = '';
+        messageEl.focus();
+        return;
+      }
+      messageError.style.display = 'none';
+      sendErrorEl.style.display = 'none';
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: new FormData(form),
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          form.style.display = 'none';
+          successEl.style.display = '';
+        } else {
+          throw new Error(result.message || 'Submission failed');
+        }
+      } catch {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send review';
+        sendErrorEl.style.display = '';
+      }
+    });
+
+    messageEl.addEventListener('input', function () {
+      if ((this as HTMLTextAreaElement).value.trim()) {
+        messageError.style.display = 'none';
+      }
+    });
+  })();
+</script>
+  
