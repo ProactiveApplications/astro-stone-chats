@@ -1,8 +1,17 @@
 const COOKIE_NAME = '__wps';
 const COOKIE_MAX_AGE = 60 * 60 * 24; // 24 hours
 
-function getToken(password) {
-  return btoa(password + ':stonechats');
+async function getToken(password, secret) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    'raw',
+    enc.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  );
+  const sig = await crypto.subtle.sign('HMAC', key, enc.encode(password));
+  return btoa(String.fromCharCode(...new Uint8Array(sig)));
 }
 
 function parseCookies(header) {
@@ -163,12 +172,13 @@ export async function onRequest(context) {
   }
 
   const password = env.WELCOME_PACK_PASSWORD;
-  if (!password) {
-    // No password configured — pass through so the page remains accessible
+  const secret = env.COOKIE_SECRET;
+  if (!password || !secret) {
+    // Both env vars required — pass through if misconfigured rather than silently locking everyone out
     return next();
   }
 
-  const expectedToken = getToken(password);
+  const expectedToken = await getToken(password, secret);
   const cookies = parseCookies(request.headers.get('Cookie'));
 
   // Valid session — serve the page
