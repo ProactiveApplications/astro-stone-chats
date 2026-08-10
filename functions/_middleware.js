@@ -38,31 +38,67 @@ function loginPage(error = '') {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Lato:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&family=Lato:ital,wght@0,400;0,500;1,400&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
+      background: #ebf2f4;
+      font-family: 'Lato', system-ui, sans-serif;
+      color: #7f636e;
+    }
+
+    main {
       min-height: 100vh;
+      padding-top: 4.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: #ebf2f4;
-      font-family: 'Lato', system-ui, sans-serif;
-      color: #7f636e;
-      padding: 2rem 1rem;
+      padding-inline: 1rem;
+      padding-bottom: 2rem;
     }
-    .brand {
+
+    /* Navbar */
+    .stonechats-navbar {
+      background: #eaf2f3 !important;
+      border-bottom: 1px solid rgba(127, 99, 110, 0.15);
+    }
+    .stonechats-navbar .navbar-brand {
       font-family: 'Raleway', system-ui, sans-serif;
       font-weight: 700;
-      font-size: 2rem;
-      color: #c24418;
-      margin-bottom: 2rem;
+      font-size: 1.65rem;
+      color: #c24418 !important;
       letter-spacing: 0.005em;
     }
-    .card {
+    .stonechats-navbar .nav-link {
+      color: #c24418 !important;
+      font-family: 'Lato', system-ui, sans-serif;
+      font-weight: 500;
+      padding: 0.5rem 1rem !important;
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+    .stonechats-navbar .nav-link:hover { opacity: 1; }
+    .stonechats-navbar .nav-link.active {
+      opacity: 1;
+      font-weight: 600;
+      border-bottom: 2px solid #c24418;
+    }
+    .stonechats-navbar .navbar-toggler {
+      border-color: rgba(194, 68, 24, 0.35);
+      padding: 0.35rem 0.6rem;
+    }
+    .stonechats-navbar .navbar-toggler:focus { box-shadow: none; }
+    .stonechats-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c24418' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Login card */
+    .login-card {
       background: #fff;
       border: 1px solid rgba(166, 185, 191, 0.4);
       border-radius: 0.75rem;
@@ -139,25 +175,55 @@ function loginPage(error = '') {
   </style>
 </head>
 <body>
-  <div class="brand">Stonechats</div>
-  <div class="card">
-    <span class="card-icon"><i class="bi bi-lock" aria-hidden="true"></i></span>
-    <h1>Welcome Pack</h1>
-    <p class="subtitle">Please enter the password provided by your host.</p>
-    <form method="POST" action="/welcome-pack">
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        autocomplete="current-password"
-        autofocus
-        required
-      />
-      ${errorHtml}
-      <button type="submit">Continue</button>
-    </form>
-  </div>
+  <nav class="navbar navbar-expand-lg fixed-top stonechats-navbar" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand" href="/">Stonechats</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavCollapse"
+        aria-controls="mainNavCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="mainNavCollapse">
+        <ul class="navbar-nav gap-lg-2">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="/welcome-pack" aria-current="page">Welcome Pack</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="login-card">
+      <span class="card-icon"><i class="bi bi-lock" aria-hidden="true"></i></span>
+      <h1>Welcome Pack</h1>
+      <p class="subtitle">Please enter the password provided by your host.</p>
+      <form method="POST" action="/welcome-pack">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="current-password"
+          autofocus
+          required
+        />
+        ${errorHtml}
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>`;
 }
