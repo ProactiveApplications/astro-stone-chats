@@ -53,13 +53,16 @@ function loginPage(error = '') {
 
     main {
       min-height: 100vh;
-      padding-top: max(4.5rem, 25vh);
+      padding-top: 5.5rem;
       padding-bottom: 2rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       padding-inline: 1rem;
+    }
+    @media (min-width: 768px) {
+      main { padding-top: max(4.5rem, 20vh); }
     }
 
     /* Navbar */
