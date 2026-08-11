@@ -1,5 +1,5 @@
 const COOKIE_NAME = '__wps';
-const COOKIE_MAX_AGE = 60 * 60 * 24; // 24 hours
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 7; // 7 days
 
 async function getToken(password, secret) {
   const enc = new TextEncoder();
